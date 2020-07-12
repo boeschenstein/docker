@@ -33,7 +33,9 @@ docker push {userName}/docker101tutorial
 
 Start:
 
-> If you are running a webserver on localhost (like IIS), you have to stop it first.
+Press the play button in the "Docker Desktop" app.
+
+> If you are running a webserver on localhost (like IIS), you have to stop it first. Otherwise the container won't start.
 
 `http://localhost/`
 
