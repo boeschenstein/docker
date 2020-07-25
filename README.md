@@ -10,7 +10,7 @@ Clone:
 git clone https://github.com/docker/getting-started.git
 ```
 
-Buil:
+Build:
 
 ```cmd
 cd getting-started
@@ -40,3 +40,7 @@ Press the play button in the "Docker Desktop" app.
 `http://localhost/`
 
 Continue this Tutorial in the Browser now.
+
+## Dotnet Core Examples
+
+https://hub.docker.com/_/microsoft-dotnet-core
