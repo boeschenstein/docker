@@ -199,3 +199,7 @@ Continue this Tutorial in the Browser now.
 ### Dotnet Core Examples
 
 https://hub.docker.com/_/microsoft-dotnet-core
+
+### Kubernetes is dropping Docker support - What does it mean for YOU?
+
+Nothing for Developers and DevOps, according https://youtu.be/7KUdmFyefSA?t=289
