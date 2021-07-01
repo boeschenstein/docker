@@ -50,7 +50,7 @@ ENTRYPOINT ["node", "app.js"]
 
 ## Images
 
-build
+build image
 
 ```dos
 docker build -t <image-name> .
@@ -80,6 +80,12 @@ BEWARE: To delete all the images, run this:
 docker rmi -f $(docker images -a -q)
 ```
 
+Delete all unused images
+
+```dos
+docker image prune
+```
+
 ## Container (instance of image)
 
 start container
@@ -102,44 +108,62 @@ BEWARE: To delete all containers including its volumes use (in bash)
 docker rm -vf $(docker ps -a -q)
 ```
 
-remove container by container-name
+Remove container by container-name
 
 ```bash
 docker rm $(docker stop $(docker ps -a -q --filter name=containerName1 --format="{{.ID}}"))
+```
+
+Delete all unused containers
+
+```dos
+docker container prune
 ```
 
 ## Volume
 
 Volumes or data volumes is a way for us to create a place in the host machine where we can write files so they are persisted.
 
-create
+Create
 
 ```dos
 docker volume create <name of volume>
 ```
 
-list
+List
 
 ```dos
 docker volume ls
 ```
 
-inspect
+Inspect
 
 ```dos
-docker inspect <name of volume>
+docker inspect <name of volume or container>
 ```
 
-delete
+Find IP address:
+
+```dos
+docker inspect -f "{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}" <containername>
+```
+
+Delete
 
 ```dos
 docker volume rm <name of volume>
 ```
 
-delete all unused volumes
+Delete all unused volumes
 
 ```dos
 docker volume prune
+```
+
+## Connect to running docker container	
+
+```dos
+docker exec -it <containername> bash
 ```
 
 ## System
@@ -177,6 +201,19 @@ Run:
 
 ```cmd
 docker run -d -p 80:80 \ --name docker-tutorial docker101tutorial
+```
+
+Run detached container with port mapping	
+
+```cmd
+docker run -d -p 8888:80 --name container-name> <image-name>
+```
+
+Pull/Push
+
+```cmd
+docker pull <dockerhubuser>/<imagename>
+docker push <dockerhubuser>/<imagename>
 ```
 
 Share: (optional)
