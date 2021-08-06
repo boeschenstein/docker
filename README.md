@@ -239,4 +239,5 @@ https://hub.docker.com/_/microsoft-dotnet-core
 
 ### Kubernetes is dropping Docker support - What does it mean for YOU?
 
-Nothing for Developers and DevOps, according https://youtu.be/7KUdmFyefSA?t=289
+- Blog: https://kubernetes.io/blog/2020/12/02/dont-panic-kubernetes-and-docker/
+- Video: Nothing for Developers and DevOps, according https://youtu.be/7KUdmFyefSA?t=289
