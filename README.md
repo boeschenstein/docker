@@ -178,6 +178,26 @@ BEWARE: delete everything
 docker system prune -af
 ```
 
+## Windows vs. Linux Containers
+
+- Linux does not support Windows Authentication
+
+### Difference in csproj
+
+```xml
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
+  </PropertyGroup>
+```
+
+```xml
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+  ```
+
 ## Tutorials
 
 ### Dockerize an ASP.NET Core application
