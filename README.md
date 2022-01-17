@@ -50,7 +50,9 @@ ENTRYPOINT ["node", "app.js"]
 
 ## Images
 
-build image
+build image (use slash as namespace separator)
+
+>Create hello World node app: <https://medium.com/@adnanrahic/hello-world-app-with-node-js-and-express-c1eb7cfa8a30>
 
 ```dos
 docker build -t <image-name> .
@@ -88,7 +90,7 @@ docker image prune
 
 ## Container (instance of image)
 
-start container
+Start container
 
 ```dos
 docker run -p 8000:3000 <image-name>
@@ -96,7 +98,9 @@ example:
 docker run -p 8000:3000 bopa/node
 ```
 
-stop all containers (bash)
+App will run on Port 8000 (3000 is internal port)
+
+Stop all containers (bash)
 
 ```bash
 docker stop $(docker ps -a -q)
@@ -160,7 +164,7 @@ Delete all unused volumes
 docker volume prune
 ```
 
-## Connect to running docker container	
+## Connect to running docker container
 
 ```dos
 docker exec -it <containername> bash
@@ -178,11 +182,11 @@ docker system prune -af
 
 ### Dockerize an ASP.NET Core application
 
-https://docs.docker.com/engine/examples/dotnetcore/
+<https://docs.docker.com/engine/examples/dotnetcore/>
 
 ### Demo From Docker
 
-Details/Source: https://github.com/docker/getting-started
+Details/Source: <https://github.com/docker/getting-started>
 
 Clone:
 
@@ -203,7 +207,7 @@ Run:
 docker run -d -p 80:80 \ --name docker-tutorial docker101tutorial
 ```
 
-Run detached container with port mapping	
+Run detached container with port mapping
 
 ```cmd
 docker run -d -p 8888:80 --name container-name> <image-name>
@@ -235,9 +239,9 @@ Continue this Tutorial in the Browser now.
 
 ### Dotnet Core Examples
 
-https://hub.docker.com/_/microsoft-dotnet-core
+<https://hub.docker.com/_/microsoft-dotnet-core>
 
 ### Kubernetes is dropping Docker support - What does it mean for YOU?
 
-- Blog: https://kubernetes.io/blog/2020/12/02/dont-panic-kubernetes-and-docker/
-- Video: Nothing for Developers and DevOps, according https://youtu.be/7KUdmFyefSA?t=289
+- Blog: <https://kubernetes.io/blog/2020/12/02/dont-panic-kubernetes-and-docker/>
+- Video: Nothing for Developers and DevOps, according <https://youtu.be/7KUdmFyefSA?t=289>
