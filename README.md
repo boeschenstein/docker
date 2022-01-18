@@ -196,15 +196,72 @@ docker system prune -af
     <TargetFramework>net6.0</TargetFramework>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
-  ```
+```
 
 ## Tutorials
 
-### Dockerize an ASP.NET Core application
+### Build inside container vs. build outside container
 
-<https://docs.docker.com/engine/examples/dotnetcore/>
+Compare: build inside vs. build outside container: <https://docs.docker.com/samples/dotnetcore/>
 
-### Demo From Docker
+### Dockerize an ASP.NET Core application (build within container)
+
+<https://docs.microsoft.com/en-us/visualstudio/containers/container-build?view=vs-2019>
+
+Create new WebApi project in Visual Studio, option [x] Enable Docker checked
+
+```docker
+#See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
+
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
+WORKDIR /app
+EXPOSE 80
+
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+WORKDIR /src
+COPY ["WebApplication1/WebApplication1.csproj", "WebApplication1/"]
+RUN dotnet restore "WebApplication1/WebApplication1.csproj"
+COPY . .
+WORKDIR "/src/WebApplication1"
+RUN dotnet build "WebApplication1.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "WebApplication1.csproj" -c Release -o /app/publish
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "WebApplication1.dll"]
+```
+
+Make sure, app is running in 'Docker' (not Kestrel, not IISExpress) and press F5.\
+While app is running in Docker now, you are even able to debug the app. (set a breakpoint to confirm)
+
+### Windows Container
+
+Go to folder of csproj and build the container
+
+`docker build -t bopa/aspnetcore_windows -f Dockerfile ..`
+
+Start the container
+
+`docker run -p 8001:80 bopa/aspnetcore_windows`
+
+Test WebApi: <http://localhost:8001/weatherforecast>
+
+### Linux Container
+
+Go to folder of csproj and build the container
+
+`docker build -t bopa/aspnetcore_linux -f Dockerfile ..`
+
+Start the container
+
+`docker run -p 8002:80 bopa/aspnetcore_linux`
+
+Test WebApi: <http://localhost:8002/weatherforecast>
+
+## Demo From Docker
 
 Details/Source: <https://github.com/docker/getting-started>
 
@@ -257,9 +314,11 @@ Press the play button in the "Docker Desktop" app.
 
 Continue this Tutorial in the Browser now.
 
-### Dotnet Core Examples
+## Dotnet Core Examples
 
 <https://hub.docker.com/_/microsoft-dotnet-core>
+
+## Information
 
 ### Kubernetes is dropping Docker support - What does it mean for YOU?
 
