@@ -5,6 +5,8 @@
 Image: build of an app
 Container: instance of a build
 
+## Basics
+
 ### Disable VirtualBox, activate Hyper-V
 
 ```powershell
@@ -28,7 +30,7 @@ needs Hyper-V (needs to disable VirtualBox)
 
 check Hyper-V Manager
 
-## Dockerfile
+### Dockerfile
 
 dockerfile = Recipe to create a docker image
 
@@ -48,7 +50,7 @@ EXPOSE 3000
 ENTRYPOINT ["node", "app.js"]
 ```
 
-## Images
+### Images
 
 build image (use slash as namespace separator)
 
@@ -88,7 +90,7 @@ Delete all unused images
 docker image prune
 ```
 
-## Container (instance of image)
+### Container (instance of image)
 
 Start container
 
@@ -124,7 +126,7 @@ Delete all unused containers
 docker container prune
 ```
 
-## Volume
+### Volume
 
 Volumes or data volumes is a way for us to create a place in the host machine where we can write files so they are persisted.
 
@@ -164,13 +166,13 @@ Delete all unused volumes
 docker volume prune
 ```
 
-## Connect to running docker container
+### Connect to running docker container
 
 ```dos
 docker exec -it <containername> bash
 ```
 
-## System
+### System
 
 BEWARE: delete everything
 
@@ -178,7 +180,62 @@ BEWARE: delete everything
 docker system prune -af
 ```
 
-## Windows vs. Linux Containers
+## Demo From Docker
+
+Details/Source: <https://github.com/docker/getting-started>
+
+Clone:
+
+```cmd
+git clone https://github.com/docker/getting-started.git
+```
+
+Build:
+
+```cmd
+cd getting-started
+docker build -t docker101tutorial .
+```
+
+Run:
+
+```cmd
+docker run -d -p 80:80 \ --name docker-tutorial docker101tutorial
+```
+
+Run detached container with port mapping
+
+```cmd
+docker run -d -p 8888:80 --name container-name> <image-name>
+```
+
+Pull/Push
+
+```cmd
+docker pull <dockerhubuser>/<imagename>
+docker push <dockerhubuser>/<imagename>
+```
+
+Share: (optional)
+
+```cmd
+docker tag docker101tutorial {userName}/docker101tutorial
+docker push {userName}/docker101tutorial
+```
+
+Start:
+
+Press the play button in the "Docker Desktop" app.
+
+> If you are running a webserver on localhost (like IIS), you have to stop it first. Otherwise the container won't start.
+
+`http://localhost/`
+
+Continue this Tutorial in the Browser now.
+
+## ASP.NET Core Examples
+
+### Windows vs. Linux Containers
 
 - Linux does not support Windows Authentication
 
@@ -260,59 +317,6 @@ Start the container
 `docker run -p 8002:80 bopa/aspnetcore_linux`
 
 Test WebApi: <http://localhost:8002/weatherforecast>
-
-## Demo From Docker
-
-Details/Source: <https://github.com/docker/getting-started>
-
-Clone:
-
-```cmd
-git clone https://github.com/docker/getting-started.git
-```
-
-Build:
-
-```cmd
-cd getting-started
-docker build -t docker101tutorial .
-```
-
-Run:
-
-```cmd
-docker run -d -p 80:80 \ --name docker-tutorial docker101tutorial
-```
-
-Run detached container with port mapping
-
-```cmd
-docker run -d -p 8888:80 --name container-name> <image-name>
-```
-
-Pull/Push
-
-```cmd
-docker pull <dockerhubuser>/<imagename>
-docker push <dockerhubuser>/<imagename>
-```
-
-Share: (optional)
-
-```cmd
-docker tag docker101tutorial {userName}/docker101tutorial
-docker push {userName}/docker101tutorial
-```
-
-Start:
-
-Press the play button in the "Docker Desktop" app.
-
-> If you are running a webserver on localhost (like IIS), you have to stop it first. Otherwise the container won't start.
-
-`http://localhost/`
-
-Continue this Tutorial in the Browser now.
 
 ## Dotnet Core Examples
 
