@@ -267,6 +267,8 @@ Compare: build inside vs. build outside container: <https://docs.docker.com/samp
 
 Create new WebApi project in Visual Studio, option [x] Enable Docker checked
 
+Empty WebApi Project contains WeatherForecast Controller and this `Dockerfile`:
+
 ```docker
 #See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
@@ -290,6 +292,8 @@ WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "WebApplication1.dll"]
 ```
+
+### Run Project from Visual Studio within Docker
 
 Make sure, app is running in 'Docker' (not Kestrel, not IISExpress) and press F5.\
 While app is running in Docker now, you are even able to debug the app. (set a breakpoint to confirm)
@@ -320,7 +324,16 @@ Test WebApi: <http://localhost:8002/weatherforecast>
 
 ## Dotnet Core Examples
 
-<https://hub.docker.com/_/microsoft-dotnet-core>
+<https://hub.docker.com/_/microsoft-dotnet>
+
+Samples: <https://github.com/dotnet/dotnet-docker/blob/main/samples/README.md>
+
+## Todo - how to solve in containers
+
+- authorization (use client certificate?)
+- authentication (LDAP queries)
+- logging
+- file access
 
 ## Information
 
