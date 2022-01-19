@@ -333,20 +333,36 @@ Samples: <https://github.com/dotnet/dotnet-docker/blob/main/samples/README.md>
 - web server?
   - reverse proxy?
     - complete example with nginx: <https://github.com/referbruv/ContainerNinja.CleanArchitecture>
-- authorization (use customers client certificate, OIDC)
+- authorization
   - todo: poc
-- authentication (LDAP queries)
+  - [client side certificate in nginx](https://fardog.io/blog/2017/12/30/client-side-certificate-authentication-with-nginx/)?
+    - (how) can .NET Core access this certificate?
+  - OIDC
+- authentication
   - todo: poc
+  - LDAP queries from linux container to Windows AD?
 - logging
   - use standard .NET Core logging: will send log to STDOUT and STDERR: TODO: how to log this output?
-  - use ElasticSearch? <https://docs.docker.com/config/containers/logging/configure/#supported-logging-drivers>
+  - use Splunk or ElasticSearch? <https://docs.docker.com/config/containers/logging/configure/#supported-logging-drivers>
 - file access
   - Windows NAS allowed from Linux? I don't think so...
   - use Unix NAS? mount is not allowed within container. Mount outside using `docker run ... --mount ...`
   - Evaluate File Storage Api? (Azure File Storage, Azure Blob Storage, ...)
 - config from outside (connection strings, SMTP server, ...)
+  - set environment variables (will override config)
 
 ## Information
+
+### 6 Things To Know When Dockerizing Microsoft .NET Apps in Production
+
+- It is essential to choose the right base image for your container. The smaller your image, the faster it deploys and starts
+- Always use a non-root container. Non-root containers add an extra layer of security and are recommended for production environments.
+Handle SIGINT and SIGTERM in your application so that you can shut down your application gracefully.
+- Use Health checks to tell Docker or your cluster manager about the state of your running container.
+- Don’t log to files or databases. Always use stdout and stderr. Use the default logging API with a built-in logging provider.
+- By default, a .NET 5.0 application provides much functionality to configure your application. You can overrule all settings via Environment variables.
+
+Source: <https://levelup.gitconnected.com/6-things-to-know-when-dockerizing-microsoft-net-apps-in-production-45b8c27a41b0>
 
 ### Kubernetes is dropping Docker support - What does it mean for YOU?
 
