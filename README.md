@@ -328,12 +328,23 @@ Test WebApi: <http://localhost:8002/weatherforecast>
 
 Samples: <https://github.com/dotnet/dotnet-docker/blob/main/samples/README.md>
 
-## Todo - how to solve in containers
+## Todo - how to solve resource access in containers
 
-- authorization (use client certificate?)
+- web server?
+  - reverse proxy?
+    - complete example with nginx: <https://github.com/referbruv/ContainerNinja.CleanArchitecture>
+- authorization (use customers client certificate, OIDC)
+  - todo: poc
 - authentication (LDAP queries)
+  - todo: poc
 - logging
+  - use standard .NET Core logging: will send log to STDOUT and STDERR: TODO: how to log this output?
+  - use ElasticSearch? <https://docs.docker.com/config/containers/logging/configure/#supported-logging-drivers>
 - file access
+  - Windows NAS allowed from Linux? I don't think so...
+  - use Unix NAS? mount is not allowed within container. Mount outside using `docker run ... --mount ...`
+  - Evaluate File Storage Api? (Azure File Storage, Azure Blob Storage, ...)
+- config from outside (connection strings, SMTP server, ...)
 
 ## Information
 
