@@ -5,9 +5,15 @@
 Image: build of an app
 Container: instance of a build
 
-## Basics
+## Installation Hints - Troubleshooting - only needed of Docker for Windows is not running
 
-### Disable VirtualBox, activate Hyper-V
+### Hyper-V
+
+Docker needs Hyper-V (needs to disable VirtualBox)
+
+check Hyper-V Manager
+
+### VirtualBox installed: Disable VirtualBox, activate Hyper-V
 
 ```powershell
 Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All
@@ -22,13 +28,14 @@ bcdedit /set hypervisorlaunchtype auto (reactivate Hyper-V)
 ```
 
 reboot
+
 press info-button to activate hyper-v when docker starts
 
-### Hyper-V
+### Check WSL
 
-needs Hyper-V (needs to disable VirtualBox)
+https://learn.microsoft.com/en-us/windows/wsl/install-manual
 
-check Hyper-V Manager
+## Basics
 
 ### Dockerfile
 
