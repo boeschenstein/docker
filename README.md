@@ -97,6 +97,12 @@ Delete all unused images
 docker image prune
 ```
 
+Get information - A Software Bill Of Materials (SBOM)
+
+```dos
+docker sbom <image name>
+```
+
 ### Container (instance of image)
 
 Start container
@@ -331,9 +337,10 @@ Test WebApi: <http://localhost:8002/weatherforecast>
 
 ## Dotnet Core Examples
 
-<https://hub.docker.com/_/microsoft-dotnet>
-
-Samples: <https://github.com/dotnet/dotnet-docker/blob/main/samples/README.md>
+- <https://hub.docker.com/_/microsoft-dotnet>
+- Samples: <https://github.com/dotnet/dotnet-docker/blob/main/samples/README.md>
+- Lerman/Ardalis: https://github.com/ardalis/pluralsight-ddd-fundamentals
+- EShop on Containers: https://github.com/dotnet-architecture/eShopOnContainers
 
 ## Todo - how to solve resource access in containers
 
