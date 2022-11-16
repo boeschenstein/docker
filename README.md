@@ -222,11 +222,24 @@ Run detached container with port mapping
 docker run -d -p 8888:80 --name container-name> <image-name>
 ```
 
-Pull/Push
+Pull/Push to docker hub
 
 ```cmd
-docker pull <dockerhubuser>/<imagename>
+docker pull <dockerhubuser>/<imagename>[:tag]
 docker push <dockerhubuser>/<imagename>
+```
+
+Pull/Push to a registry
+
+```cmd
+docker pull <registry>/<url>[:tag]
+docker push <registry>/<url>
+```
+
+List all available tags:
+
+```cmd
+docker pull -a <registry>/<url>
 ```
 
 Share: (optional)
