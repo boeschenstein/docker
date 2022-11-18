@@ -1,5 +1,13 @@
 # Docker
 
+## Hosting Docker Containers
+
+- Use a Docker hosting/management platform (like Rancher, Cloud Foundry, OpenShift, Azure, AWS)
+  - no extra web server needed (provided by Docker hosting/management platform)
+  - DevOps teams take care of web server and security
+- You can do Container Management yourself using Kubernetes (needs more work and knowledge)
+  - Docker hosting/management platforms often have Kubernetes inside
+
 ## Terminology
 
 Image: build of an app
