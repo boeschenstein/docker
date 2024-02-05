@@ -51,7 +51,7 @@ dockerfile = Recipe to create a docker image
 
 simple Dockerfile
 
-```dockerfile
+```Dockerfile
 FROM node:latest
 
 WORKDIR /app
@@ -64,6 +64,10 @@ EXPOSE 3000
 
 ENTRYPOINT ["node", "app.js"]
 ```
+
+Run dockerfile
+
+`docker build .`
 
 ### Images
 
