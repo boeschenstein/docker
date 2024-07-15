@@ -43,6 +43,12 @@ press info-button to activate hyper-v when docker starts
 
 https://learn.microsoft.com/en-us/windows/wsl/install-manual
 
+## Install a Windows Desktop App
+
+- Docker Desktop (not free anymore)
+- Rancher Desktop (free, kubernetes (I don't need this and disable it) included, works fine): <https://rancherdesktop.io/> 
+- Podman Desktop (not tested yet): <https://podman-desktop.io/>
+
 ## Basics
 
 ### Dockerfile
@@ -263,7 +269,7 @@ docker push {userName}/docker101tutorial
 
 Start:
 
-Press the play button in the "Docker Desktop" app.
+Press the play button in your desktop app.
 
 > If you are running a webserver on localhost (like IIS), you have to stop it first. Otherwise the container won't start.
 
