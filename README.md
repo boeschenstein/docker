@@ -46,7 +46,7 @@ https://learn.microsoft.com/en-us/windows/wsl/install-manual
 ## Install a Windows Desktop App
 
 - Docker Desktop (not free anymore)
-- Rancher Desktop (free, kubernetes (I don't need this and disable it) included, works fine): <https://rancherdesktop.io/> 
+- Rancher Desktop (free, kubernetes included (I don't need this and disable it), works fine): <https://rancherdesktop.io/> 
 - Podman Desktop (not tested yet): <https://podman-desktop.io/>
 
 ## Basics
